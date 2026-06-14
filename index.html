@@ -1424,6 +1424,177 @@
       .expandedBackBtn{right:8px !important;bottom:8px !important;font-size:11px !important;padding:7px 9px !important;}
       .outerCheatSolveBtn{left:8px !important;bottom:8px !important;font-size:11px !important;padding:7px 9px !important;}
     }
+
+    /* ===== Space Max / Rae coherent cover + voice dialogue interface ===== */
+    #storyBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    #dialogueBox{
+      position:fixed;
+      left:50%;
+      top:72%;
+      transform:translateX(-50%);
+      z-index:58;
+      display:none;
+      width:min(1180px,calc(100vw - 24px));
+      max-width:calc(100vw - 24px);
+      min-height:46px;
+      height:auto;
+      padding:8px 12px;
+      border-radius:20px;
+      border:2px solid rgba(255,227,109,.82);
+      background:linear-gradient(180deg,rgba(9,24,58,.94),rgba(4,9,27,.94));
+      box-shadow:0 8px 22px rgba(0,0,0,.45),0 0 16px rgba(255,227,109,.16),inset 0 0 18px rgba(114,247,255,.06);
+      pointer-events:auto;
+      align-items:center;
+      gap:10px;
+      white-space:normal;
+    }
+    #dialogueBox.open{
+      display:flex;
+      animation:dialoguePopSmall .16s ease-out;
+    }
+    @keyframes dialoguePopSmall{
+      from{opacity:0;transform:translateX(-50%) translateY(8px) scale(.98)}
+      to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+    }
+    .dialogueTopRow{
+      margin:0;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:0;
+      flex:0 0 auto;
+      align-self:center;
+    }
+    #dialogueSpeaker{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:13px;
+      white-space:nowrap;
+      font-weight:1000;
+      box-shadow:0 0 14px rgba(255,227,109,.22);
+      background:linear-gradient(180deg,#bffbff,#72f7ff);
+      color:#06142b;
+    }
+    #dialogueSpeaker.rae{
+      background:linear-gradient(180deg,#ffd7b0,#ff8a53);
+      color:#321407;
+    }
+    #dialogueSpeaker.max{
+      background:linear-gradient(180deg,#bffbff,#72f7ff);
+      color:#06142b;
+    }
+    #dialogueVoiceTag{display:none;}
+    #dialogueText{
+      flex:1 1 auto;
+      min-width:0;
+      min-height:0;
+      color:#f3feff;
+      font-size:clamp(13px,1.55vw,17px);
+      line-height:1.25;
+      font-weight:1000;
+      text-shadow:0 1px 0 rgba(0,0,0,.35);
+      white-space:normal;
+      overflow:visible;
+      text-overflow:clip;
+      padding:0 4px;
+    }
+    .dialogueHint{display:none;}
+    .dialogueActions{
+      margin:0 0 0 4px;
+      display:flex;
+      justify-content:flex-end;
+      gap:0;
+      flex:0 0 auto;
+      align-self:center;
+    }
+    #dialogueReplayVoiceBtn,#dialogueNextBtn{display:none;}
+    #dialogueSkipBtn{
+      min-height:30px;
+      padding:5px 10px;
+      font-size:12px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    /* Cover page tuned to match the Space Max series feel. */
+    #coverPage{
+      padding:clamp(6px,1.6vmin,14px) !important;
+      overflow:hidden !important;
+      align-items:center !important;
+    }
+    .coverCard{
+      width:min(760px,calc(100vw - 12px)) !important;
+      height:auto !important;
+      max-height:calc(100dvh - 12px) !important;
+      overflow:hidden !important;
+      display:flex !important;
+      flex-direction:column !important;
+      justify-content:flex-start !important;
+      gap:clamp(5px,1.1vmin,10px) !important;
+      padding:clamp(10px,2.2vmin,20px) !important;
+    }
+    .coverBadge{order:1;margin:0 !important;padding:5px 10px !important;font-size:clamp(11px,1.8vmin,14px) !important;}
+    .coverTitle{order:2;margin:0 !important;font-size:clamp(21px,5.4vmin,44px) !important;line-height:1 !important;}
+    .coverSubtitle{order:3;margin:0 !important;font-size:clamp(12px,2vmin,16px) !important;line-height:1.18 !important;}
+    .coverActions{order:4;margin:0 !important;width:100% !important;display:flex !important;}
+    .coverBtn{min-height:clamp(38px,6.4vmin,48px) !important;padding:8px 14px !important;font-size:clamp(13px,2.1vmin,17px) !important;}
+    .coverStory{order:5;margin:0 !important;font-size:clamp(11px,1.75vmin,14px) !important;line-height:1.22 !important;padding:clamp(7px,1.3vmin,11px) clamp(8px,1.7vmin,14px) !important;max-height:18dvh !important;overflow:hidden !important;}
+    .coverStory p{margin:0 0 4px !important;}
+    .howToDetails{order:6;margin:0 !important;}
+    .coverHelpBtn{min-height:32px !important;padding:6px 10px !important;font-size:12px !important;}
+    .howToPanel{padding:7px 9px !important;font-size:11px !important;line-height:1.2 !important;max-height:20dvh !important;overflow:auto !important;touch-action:pan-y !important;}
+    .missionGrid{order:7;margin:0 !important;gap:5px !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+    .missionItem{padding:5px 4px !important;font-size:clamp(10px,1.7vmin,12px) !important;line-height:1.08 !important;}
+    .missionItem .big{font-size:clamp(16px,3.4vmin,24px) !important;margin-bottom:0 !important;}
+
+    @media(max-width:760px){
+      #dialogueBox{
+        width:calc(100vw - 10px);
+        max-width:calc(100vw - 10px);
+        padding:7px 8px;
+        gap:7px;
+        border-radius:16px;
+        align-items:flex-start;
+        top:68%;
+      }
+      .dialogueTopRow,.dialogueActions{align-self:flex-start;}
+      #dialogueText{font-size:12px;line-height:1.2;padding-top:4px;}
+      #dialogueSpeaker{font-size:11px;padding:4px 7px;min-height:26px;}
+      #dialogueSkipBtn{font-size:11px;min-height:28px;padding:4px 7px;}
+    }
+    @media(max-width:520px){
+      .coverCard{gap:5px !important;padding:9px 8px !important;}
+      .coverActions{gap:6px !important;}
+      .coverBtn{flex:1 1 130px !important;min-height:38px !important;padding:7px 8px !important;}
+      .coverStory{max-height:14dvh !important;}
+      .missionGrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+    }
+    @media(max-width:430px){
+      #dialogueBox{gap:5px;padding:6px;}
+      #dialogueText{font-size:11px;line-height:1.18;}
+      #dialogueSpeaker{font-size:10px;padding:4px 6px;}
+    }
+    @media(max-height:620px){
+      .coverBadge{display:none !important;}
+      .coverStory{display:none !important;}
+      .missionItem .big{display:none !important;}
+      .howToDetails{display:none !important;}
+      .coverCard{justify-content:center !important;}
+    }
+    @media(max-height:460px){
+      .missionGrid{display:none !important;}
+      .coverTitle{font-size:clamp(18px,8vh,32px) !important;}
+      .coverSubtitle{font-size:11px !important;}
+    }
+
 </style>
 </head>
 <body>
@@ -1446,15 +1617,31 @@
       <div class="hudPill" id="missionPill">Mission: Rae's Planet</div>
       <div class="hudPill" id="reactorPill">Rocket Body: 0/1</div>
       <button class="smallBtn dark" id="soundBtn" type="button">🔊 Sound</button>
+      <button class="smallBtn dark" id="storyBtn" type="button">💬 Story</button>
     </div>
   </div>
 
   <div id="helpCard">
     <b>Move Space Max:</b> WASD, keyboard arrows, or the left on-screen pad. Look around with mouse drag or the right-side buttons.
-    Walk to Rae first to hear Max's story. Then enter the repair bay and activate Rae's spaceship computer to help him repair his ship.
+    Walk to Rae and the repair bay. The door opens upwards when you approach. Activate Rae's spaceship computer to help him repair his ship.
   </div>
 
   <div id="messageBox"></div>
+
+  <div id="dialogueBox" aria-live="polite">
+    <div class="dialogueTopRow">
+      <span id="dialogueSpeaker">Space Max</span>
+      <span id="dialogueVoiceTag">voice on</span>
+    </div>
+    <div id="dialogueText"></div>
+    <div class="dialogueHint" id="dialogueHint">Listen to Rae and Space Max. The story and the unit-fraction idea are inside their conversation.</div>
+    <div class="dialogueActions">
+      <button class="pillBtn dark" id="dialogueReplayVoiceBtn" type="button">🔊 Repeat voice</button>
+      <button class="pillBtn dark" id="dialogueSkipBtn" type="button">Skip</button>
+      <button class="pillBtn" id="dialogueNextBtn" type="button">Next ▶</button>
+    </div>
+  </div>
+
 
   <div id="rewardToast">
     <span class="bigReward">🚀</span>
@@ -1500,18 +1687,19 @@
       <div class="coverStory compactStory">
         <p>Space Max lands on a strange planet and meets Rae, a red panda whose spaceship computer is locked.</p>
         <p>Rae promises to give Space Max the <b>Rocket Body</b> if Space Max helps him solve the unit-fraction questions.</p>
-        <p>During the conversation, Space Max explains that an alien captured him. He escaped, but his rocket broke apart, so he must collect rocket parts to build a new rocket back to Earth.</p>
+        <p>Rae also learns that Space Max was captured by an alien and is collecting rocket parts to build a rocket back to Earth.</p>
       </div>
       <details class="howToDetails">
         <summary class="coverHelpBtn">How to play</summary>
         <div class="howToPanel">
           <p><b>Move:</b> Use WASD / arrow keys on laptop, or the on-screen arrow pads on mobile.</p>
-          <p><b>Mission rule:</b> Practice is optional preparation. The Test Mission is required: score 12/12 to collect the <b>Rocket Body</b>.</p>
+          <p><b>Mission rule:</b> Practice is optional preparation. Test Mission must be 12/12 in one sitting to help Rae fix his spaceship and collect the Rocket Body.</p>
+          <p><b>Unit fraction hint:</b> When both numerators are 1, the fraction with the larger denominator is smaller because each part is cut into smaller pieces.</p>
         </div>
       </details>
       <div class="missionGrid">
-        <div class="missionItem"><span class="big">🧑‍🚀</span>Walk Space Max</div>
         <div class="missionItem"><span class="big">🐼</span>Meet Rae</div>
+        <div class="missionItem"><span class="big">🛠️</span>Repair spaceship</div>
         <div class="missionItem"><span class="big">🧮</span>Compare fractions</div>
         <div class="missionItem"><span class="big">🚀</span>Collect Rocket Body</div>
       </div>
@@ -2948,6 +3136,14 @@
     const hintText = $("hintText");
     const feedback = $("feedback");
     const soundBtn = $("soundBtn");
+    const storyBtn = $("storyBtn");
+    const dialogueBox = $("dialogueBox");
+    const dialogueSpeaker = $("dialogueSpeaker");
+    const dialogueText = $("dialogueText");
+    const dialogueHint = $("dialogueHint");
+    const dialogueReplayVoiceBtn = $("dialogueReplayVoiceBtn");
+    const dialogueSkipBtn = $("dialogueSkipBtn");
+    const dialogueNextBtn = $("dialogueNextBtn");
     const confettiLayer = $("confettiLayer");
     const endingPanel = $("endingPanel");
     const endingVideo = $("endingVideo");
@@ -2986,7 +3182,7 @@
 
     const collisionCircles = [
       { name:"rocket rounded hull", x:-9.8, z:8.6, radius:1.55 },
-      { name:"Rae red panda", x:5.1, z:-6.9, radius:.98 }
+      { name:"Rae red panda", x:5.55, z:-6.2, radius:.96 }
     ];
 
     const collisionRects = [
@@ -2997,7 +3193,7 @@
       { name:"computer console", minX:-1.72, maxX:1.72, minZ:-16.45, maxZ:-14.78 },
 
       // Rae's damaged spaceship footprint.
-      { name:"Rae spaceship", minX:6.05, maxX:10.65, minZ:-10.25, maxZ:-5.45 },
+      { name:"Rae spaceship", minX:6.10, maxX:10.90, minZ:-6.70, maxZ:-2.10 },
 
       // Chamber side walls.
       { name:"left chamber wall", minX:-4.80, maxX:-3.72, minZ:-17.55, maxZ:-9.55 },
@@ -3026,11 +3222,16 @@
     let mouseDown = false;
     let lastMouseX = 0;
     let lastMouseY = 0;
+    let dialogueLines = [];
+    let dialogueIndex = 0;
+    let currentDialogueLine = null;
+    let voicesLoadedOnce = false;
+    let dialogueTimer = null;
+    let dialogueAutoDelay = 0;
     let dialogueBusy = false;
-    let raeDialogueSeen = false;
+    let raeTalked = false;
 
-    function showMessage(text, ms=2800, opts={}){
-      if(dialogueBusy && !opts.dialogue) return;
+    function showMessage(text, ms=2800){
       messageBox.textContent = text;
       messageBox.style.display = "block";
       clearTimeout(msgTimer);
@@ -3085,53 +3286,156 @@
       setTimeout(()=>tone(760,.15,"sine",.055),190);
     }
 
-    function speak(text){
+    function getVoices(){
+      if (!("speechSynthesis" in window)) return [];
+      const voices = speechSynthesis.getVoices ? speechSynthesis.getVoices() : [];
+      voicesLoadedOnce = voicesLoadedOnce || voices.length > 0;
+      return voices;
+    }
+
+    function chooseVoice(role){
+      const voices = getVoices();
+      if(!voices.length) return null;
+      const english = voices.filter(v => /^en[-_]/i.test(v.lang || ""));
+      const list = english.length ? english : voices;
+      const names = role === "Rae"
+        ? ["Samantha","Zira","Karen","Tessa","Female","Google UK English Female","Microsoft Hazel"]
+        : ["Daniel","David","Alex","Male","Google UK English Male","Microsoft George"];
+      for(const wanted of names){
+        const found = list.find(v => (v.name || "").toLowerCase().includes(wanted.toLowerCase()));
+        if(found) return found;
+      }
+      return role === "Rae" ? list[list.length - 1] : list[0];
+    }
+
+    function speechText(text){
+      return String(text || "")
+        .replace(/[“”]/g,"")
+        .replace(/12\/12/g,"twelve out of twelve")
+        .replace(/1\//g,"one over ")
+        .replace(/\bTTS\b/g,"text to speech");
+    }
+
+    function speakLine(role, text){
       if(muted || !("speechSynthesis" in window)) return;
       try{
         speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.rate = .86;
-        u.pitch = .82;
-        u.volume = .9;
+        const u = new SpeechSynthesisUtterance(speechText(text));
+        const isRae = role === "Rae";
+        u.rate = isRae ? .98 : .86;
+        u.pitch = isRae ? 1.35 : .72;
+        u.volume = .92;
+        const v = chooseVoice(role);
+        if(v) u.voice = v;
         speechSynthesis.speak(u);
       }catch(e){}
     }
 
-
-
-    function dialogueDuration(text){
-      return Math.min(12500, Math.max(6200, String(text).length * 58 + 2100));
+    function speak(text, role="Space Max"){
+      speakLine(role, text);
     }
 
-    function showDialogueLine(text){
-      const ms = dialogueDuration(text);
-      showMessage(text, ms, {dialogue:true});
-      speak(text.replace(/[“”]/g, ''));
-      return ms;
+    const OPENING_DIALOGUE = [
+      {speaker:"Rae", hint:"Story: Rae needs help repairing his ship.", text:"Oh! A traveller! Please be careful near my ship. I am Rae, and my spaceship computer has locked the repair controls."},
+      {speaker:"Rae", hint:"Story: Rae explains the problem.", text:"I tried every tool in my repair kit, but the computer will only unlock if someone solves its Comparing of Unit Fractions questions."},
+      {speaker:"Space Max", hint:"Story: Max explains why he landed here.", text:"I am Space Max. I did not plan to land here. An alien captured me near the Fraction Belt, and I only escaped after my rocket broke apart."},
+      {speaker:"Space Max", hint:"Story: Max needs rocket parts to return home.", text:"Now I am searching for rocket parts so I can build a new rocket and fly back to Earth. Without the main Rocket Body, I cannot even rebuild the frame."},
+      {speaker:"Rae", hint:"Story: Rae offers the reward.", text:"That is lucky timing! I found a Rocket Body beside a crater after the last meteor shower. Help me wake my spaceship, and I will give it to you."},
+      {speaker:"Space Max", hint:"Teaching: Comparing unit fractions.", text:"Deal. For unit fractions, the numerator is always one. That means we are comparing one equal part from each whole."},
+      {speaker:"Rae", hint:"Teaching: Denominator meaning.", text:"So the denominator tells us how many equal parts the whole has been cut into. More parts means each part becomes smaller."},
+      {speaker:"Space Max", hint:"Teaching: Unit fraction rule.", text:"Exactly. One half is bigger than one fourth, because a whole cut into two equal parts gives larger pieces than a whole cut into four equal parts."},
+      {speaker:"Rae", hint:"Teaching: How to answer.", text:"When I see two unit fractions, I should look at the denominator. The larger denominator gives the smaller fraction."},
+      {speaker:"Space Max", hint:"Mission rule.", text:"Let us use that idea on your computer. Practice can help us prepare, but the Test Mission must be twelve out of twelve to collect the Rocket Body."},
+      {speaker:"Rae", hint:"Start mission.", text:"Then let us fix this ship. Activate the computer in the repair bay when you are ready."}
+    ];
+
+    function dialogueDelayFor(text){
+      return Math.max(5000, Math.min(9800, 3200 + String(text || "").length * 58));
     }
 
-    async function playRaeDialogue(){
-      if(dialogueBusy) return;
-      dialogueBusy = true;
-      raeDialogueSeen = true;
-      setMission("Talk to Rae");
-      const lines = [
-        "A small red panda mechanic waves beside the damaged ship. “Please help! My spaceship is hurt, and the repair computer will not unlock.”",
-        "The astronaut steps closer. “I can help. I am far from Earth because an alien captured me and brought me into space.”",
-        "He looks at his broken rocket. “I escaped, but my rocket broke apart. Now I need to collect the missing rocket parts one by one.”",
-        "The red panda points to a shiny part near the ship. “I found a Rocket Body on this planet. It is yours if you can help me fix my spaceship.”",
-        "The computer screen flickers. “It only unlocks for someone who can compare unit fractions. When the numerator is 1, the bigger denominator makes a smaller fraction.”",
-        "The astronaut nods. “Then I will solve the questions, repair your ship, and earn the Rocket Body for my journey home.”"
-      ];
-      for(const text of lines){
-        const ms = showDialogueLine(text);
-        await delay(ms + 520);
+    function setDialogueSpeakerStyle(speaker){
+      if(!dialogueSpeaker) return;
+      dialogueSpeaker.classList.remove("rae","max");
+      if(speaker === "Rae"){
+        dialogueSpeaker.textContent = "🐼 Rae";
+        dialogueSpeaker.classList.add("rae");
+      }else{
+        dialogueSpeaker.textContent = "🚀 Max";
+        dialogueSpeaker.classList.add("max");
       }
-      showMessage("Now walk to the glowing repair-bay computer and activate Rae's computer.", 5600, {dialogue:true});
-      await delay(1400);
-      setMission("Use Rae's computer");
-      dialogueBusy = false;
     }
+
+    function scheduleNextDialogue(){
+      clearTimeout(dialogueTimer);
+      dialogueAutoDelay = dialogueDelayFor(currentDialogueLine && currentDialogueLine.text);
+      dialogueTimer = setTimeout(()=>{
+        if(!dialogueLines.length) return;
+        if(dialogueIndex >= dialogueLines.length - 1){
+          closeDialogue(false);
+          showMessage("Now activate Rae's computer in the repair bay.", 4200);
+          setMission("Use Rae's computer");
+          return;
+        }
+        dialogueIndex++;
+        renderDialogueLine();
+      }, dialogueAutoDelay);
+    }
+
+    function renderDialogueLine(){
+      if(!dialogueBox || !dialogueLines.length) return;
+      currentDialogueLine = dialogueLines[dialogueIndex];
+      const speaker = currentDialogueLine.speaker || "Space Max";
+      setDialogueSpeakerStyle(speaker);
+      if(dialogueText) dialogueText.textContent = currentDialogueLine.text || "";
+      if(dialogueHint) dialogueHint.textContent = currentDialogueLine.hint || "Listen carefully.";
+      dialogueBox.classList.add("open");
+      speakLine(speaker, currentDialogueLine.text || "");
+      scheduleNextDialogue();
+    }
+
+    function startDialogue(lines){
+      if(!dialogueBox || !lines || !lines.length) return;
+      clearTimeout(dialogueTimer);
+      dialogueLines = lines.slice();
+      dialogueIndex = 0;
+      dialogueBusy = true;
+      renderDialogueLine();
+    }
+
+    function closeDialogue(cancelVoice=true){
+      clearTimeout(dialogueTimer);
+      dialogueTimer = null;
+      if(dialogueBox) dialogueBox.classList.remove("open");
+      dialogueLines = [];
+      currentDialogueLine = null;
+      dialogueBusy = false;
+      if(cancelVoice && "speechSynthesis" in window) speechSynthesis.cancel();
+    }
+
+    function nextDialogue(){
+      if(!dialogueLines.length) return;
+      clearTimeout(dialogueTimer);
+      if(dialogueIndex >= dialogueLines.length - 1){
+        closeDialogue();
+        showMessage("Now activate Rae's computer in the repair bay.", 4200);
+        setMission("Use Rae's computer");
+        return;
+      }
+      dialogueIndex++;
+      renderDialogueLine();
+    }
+
+    function updateDialoguePosition(){
+      // Dialogue stays as a wide subtitle row so pupils can read the full line.
+    }
+
+    function playRaeDialogue(){
+      if(dialogueBusy) return;
+      raeTalked = true;
+      setMission("Talk to Rae");
+      startDialogue(OPENING_DIALOGUE);
+    }
+
     function gcd(a,b){
       a = Math.abs(a); b = Math.abs(b);
       while(b){ const t=b; b=a%b; a=t; }
@@ -3403,95 +3707,58 @@
       const THREE = window.THREE;
       const loader = window.THREE.GLTFLoader ? new THREE.GLTFLoader() : null;
 
-      const RAE_POS = {x:5.1, y:0, z:-6.9};
-      const SHIP_POS = {x:8.3, y:0, z:-7.85};
-
-      function makeMaterialsBrighter(root, opts={}){
-        const emissiveColor = opts.emissiveColor || 0x111111;
-        const emissiveIntensity = opts.emissiveIntensity ?? .28;
-        root.traverse(obj=>{
-          if(!obj.isMesh) return;
-          obj.castShadow = true;
-          obj.receiveShadow = true;
-          const mats = Array.isArray(obj.material) ? obj.material : [obj.material];
-          const next = mats.map(mat=>{
-            if(!mat) return mat;
-            const cloned = mat.clone ? mat.clone() : mat;
-            if(cloned.emissive){
-              cloned.emissive.setHex(emissiveColor);
-              cloned.emissiveIntensity = Math.max(cloned.emissiveIntensity || 0, emissiveIntensity);
-            }
-            if(cloned.color && opts.minLightness){
-              const hsl = {h:0,s:0,l:0};
-              cloned.color.getHSL(hsl);
-              if(hsl.l < opts.minLightness){
-                hsl.l = opts.minLightness;
-                cloned.color.setHSL(hsl.h, hsl.s, hsl.l);
-              }
-            }
-            return cloned;
-          });
-          obj.material = Array.isArray(obj.material) ? next : next[0];
-        });
-      }
-
       function prepareModel(root, opts){
+        root.updateMatrixWorld(true);
         const box = new THREE.Box3().setFromObject(root);
         const size = new THREE.Vector3();
         const center = new THREE.Vector3();
         box.getSize(size);
         box.getCenter(center);
-        root.position.sub(center);
+        // Keep the model upright on the ground: center only on x/z, and align the bottom to y = 0.
+        root.position.set(-center.x, -box.min.y, -center.z);
         const maxDim = Math.max(size.x || 1, size.y || 1, size.z || 1);
         const scale = opts.targetSize / maxDim;
         root.scale.setScalar(scale);
         root.rotation.x = opts.rotationX || 0;
         root.rotation.y = opts.rotationY || 0;
         root.rotation.z = opts.rotationZ || 0;
-
         const holder = new THREE.Group();
-        holder.name = opts.name || "gltfModel";
         holder.add(root);
         holder.position.set(opts.x, opts.y || 0, opts.z);
+        holder.traverse(obj=>{
+          if(obj.isMesh){
+            obj.castShadow = true;
+            obj.receiveShadow = true;
+          }
+        });
         scene.add(holder);
-
-        makeMaterialsBrighter(holder, opts.materialBoost || {});
-
-        // Make uploaded GLTFs easy to see: put their base on the ground instead of letting
-        // half the model sit below the planet surface after centering and scaling.
-        if(opts.liftToGround !== false){
-          const modelBox = new THREE.Box3().setFromObject(holder);
-          const groundY = opts.groundY ?? 0;
-          holder.position.y += groundY - modelBox.min.y + (opts.extraLift || 0);
-        }
         return holder;
       }
 
       function makeFallbackRae(){
         const root = new THREE.Group();
-        root.name = "fallbackRae";
-        const red = new THREE.MeshStandardMaterial({color:0xc2410c, roughness:.72, metalness:.05, emissive:0x7c2d12, emissiveIntensity:.28});
-        const cream = new THREE.MeshStandardMaterial({color:0xffe7c2, roughness:.8, metalness:.02, emissive:0x8a4b21, emissiveIntensity:.1});
+        const red = new THREE.MeshStandardMaterial({color:0xb74124, roughness:.72, metalness:.05, emissive:0x3b0b04, emissiveIntensity:.16});
+        const cream = new THREE.MeshStandardMaterial({color:0xffe7c2, roughness:.8, metalness:.02});
         const dark = new THREE.MeshStandardMaterial({color:0x1b1020, roughness:.65, metalness:.08});
-        const body = new THREE.Mesh(new THREE.SphereGeometry(.58,24,18), red);
-        body.scale.set(.82,1.2,.64); body.position.y=.95; root.add(body);
-        const head = new THREE.Mesh(new THREE.SphereGeometry(.54,24,18), red);
-        head.position.y=1.82; root.add(head);
-        const face = new THREE.Mesh(new THREE.SphereGeometry(.34,18,12), cream);
-        face.scale.set(1,.62,.23); face.position.set(0,1.74,.43); root.add(face);
+        const body = new THREE.Mesh(new THREE.SphereGeometry(.46,22,16), red);
+        body.scale.set(.8,1.15,.62); body.position.y=.72; root.add(body);
+        const head = new THREE.Mesh(new THREE.SphereGeometry(.42,22,16), red);
+        head.position.y=1.42; root.add(head);
+        const face = new THREE.Mesh(new THREE.SphereGeometry(.28,18,12), cream);
+        face.scale.set(1,.62,.22); face.position.set(0,1.36,.33); root.add(face);
         [-1,1].forEach(side=>{
-          const ear = new THREE.Mesh(new THREE.ConeGeometry(.22,.42,4), dark);
-          ear.position.set(side*.39,2.28,0); ear.rotation.z = side*.45; root.add(ear);
-          const eye = new THREE.Mesh(new THREE.SphereGeometry(.045,10,8), dark);
-          eye.position.set(side*.15,1.88,.60); root.add(eye);
-          const arm = new THREE.Mesh(new THREE.CapsuleGeometry(.095,.48,8,12), red);
-          arm.position.set(side*.56,1.08,.08); arm.rotation.z=side*.35; root.add(arm);
-          const leg = new THREE.Mesh(new THREE.CapsuleGeometry(.105,.42,8,12), dark);
-          leg.position.set(side*.24,.32,0); root.add(leg);
+          const ear = new THREE.Mesh(new THREE.ConeGeometry(.18,.36,4), dark);
+          ear.position.set(side*.31,1.78,0); ear.rotation.z = side*.45; root.add(ear);
+          const eye = new THREE.Mesh(new THREE.SphereGeometry(.035,10,8), dark);
+          eye.position.set(side*.12,1.45,.49); root.add(eye);
+          const arm = new THREE.Mesh(new THREE.CapsuleGeometry(.08,.38,8,12), red);
+          arm.position.set(side*.45,.86,.08); arm.rotation.z=side*.35; root.add(arm);
+          const leg = new THREE.Mesh(new THREE.CapsuleGeometry(.09,.34,8,12), dark);
+          leg.position.set(side*.2,.24,0); root.add(leg);
         });
-        const nose = new THREE.Mesh(new THREE.SphereGeometry(.055,10,8), dark);
-        nose.position.set(0,1.75,.68); root.add(nose);
-        root.position.set(RAE_POS.x,0,RAE_POS.z);
+        const nose = new THREE.Mesh(new THREE.SphereGeometry(.045,10,8), dark);
+        nose.position.set(0,1.35,.55); root.add(nose);
+        root.position.set(5.55,0,-6.2);
         root.rotation.y = -1.15;
         root.traverse(obj=>{ if(obj.isMesh){ obj.castShadow=true; obj.receiveShadow=true; } });
         scene.add(root);
@@ -3500,115 +3767,68 @@
 
       function makeFallbackShip(){
         const root = new THREE.Group();
-        root.name = "fallbackRaeShip";
-        const hullMat = new THREE.MeshStandardMaterial({color:0xf97316, roughness:.36, metalness:.35, emissive:0x9a3412, emissiveIntensity:.38});
-        const glassMat = new THREE.MeshStandardMaterial({color:0x72f7ff, roughness:.12, metalness:.2, transparent:true, opacity:.86, emissive:0x1fc9ff, emissiveIntensity:.85});
-        const finMat = new THREE.MeshStandardMaterial({color:0xb070ff, roughness:.45, metalness:.2, emissive:0x5b21b6, emissiveIntensity:.28});
-        const hull = new THREE.Mesh(new THREE.CylinderGeometry(.72,.96,3.35,32), hullMat);
+        const hullMat = new THREE.MeshStandardMaterial({color:0xf97316, roughness:.36, metalness:.35, emissive:0x7c2d12, emissiveIntensity:.25});
+        const glassMat = new THREE.MeshStandardMaterial({color:0x72f7ff, roughness:.12, metalness:.2, transparent:true, opacity:.82, emissive:0x1fc9ff, emissiveIntensity:.75});
+        const finMat = new THREE.MeshStandardMaterial({color:0xb070ff, roughness:.45, metalness:.2, emissive:0x3b0764, emissiveIntensity:.2});
+        const hull = new THREE.Mesh(new THREE.CylinderGeometry(.68,.9,2.9,28), hullMat);
         hull.rotation.z = Math.PI/2; hull.castShadow=true; root.add(hull);
-        const nose = new THREE.Mesh(new THREE.ConeGeometry(.72,1.2,32), hullMat);
-        nose.rotation.z = -Math.PI/2; nose.position.x=2.28; nose.castShadow=true; root.add(nose);
-        const glass = new THREE.Mesh(new THREE.SphereGeometry(.48,24,16), glassMat);
-        glass.position.set(.58,.56,0); glass.scale.y=.62; root.add(glass);
+        const nose = new THREE.Mesh(new THREE.ConeGeometry(.68,1.15,28), hullMat);
+        nose.rotation.z = -Math.PI/2; nose.position.x=2.02; nose.castShadow=true; root.add(nose);
+        const glass = new THREE.Mesh(new THREE.SphereGeometry(.43,22,14), glassMat);
+        glass.position.set(.52,.48,0); glass.scale.y=.62; root.add(glass);
         [-1,1].forEach(side=>{
-          const fin = new THREE.Mesh(new THREE.BoxGeometry(.54,.16,1.22), finMat);
-          fin.position.set(-.72,-.48,side*.62); fin.rotation.x = side*.32; fin.castShadow=true; root.add(fin);
+          const fin = new THREE.Mesh(new THREE.BoxGeometry(.46,.12,1.05), finMat);
+          fin.position.set(-.62,-.45,side*.54); fin.rotation.x = side*.32; fin.castShadow=true; root.add(fin);
         });
-        const smokeMat = new THREE.MeshBasicMaterial({color:0xcbd5e1, transparent:true, opacity:.45});
-        for(let i=0;i<5;i++){
-          const puff = new THREE.Mesh(new THREE.SphereGeometry(.2+i*.05,14,10), smokeMat);
-          puff.position.set(-1.82-i*.32,.18+i*.08,-.2+i*.1); root.add(puff);
+        const smokeMat = new THREE.MeshBasicMaterial({color:0x9ca3af, transparent:true, opacity:.45});
+        for(let i=0;i<4;i++){
+          const puff = new THREE.Mesh(new THREE.SphereGeometry(.18+i*.04,14,10), smokeMat);
+          puff.position.set(-1.65-i*.26,.1+i*.04,-.18+i*.1); root.add(puff);
         }
-        root.position.set(SHIP_POS.x,.75,SHIP_POS.z);
-        root.rotation.y = -.55;
+        root.position.set(8.35,.72,-4.55);
+        root.rotation.y = -0.78;
         scene.add(root);
         return root;
       }
 
-      function addFloatingArrow(x,z,label){
-        const arrowGroup = new THREE.Group();
-        const arrowMat = new THREE.MeshBasicMaterial({color:0xffe36d, transparent:true, opacity:.76});
-        const cone = new THREE.Mesh(new THREE.ConeGeometry(.14,.38,24), arrowMat);
-        cone.rotation.x = Math.PI;
-        cone.position.y = 2.78;
-        arrowGroup.add(cone);
-        const stem = new THREE.Mesh(new THREE.CylinderGeometry(.028,.028,.34,12), arrowMat);
-        stem.position.y = 3.05;
-        arrowGroup.add(stem);
-        arrowGroup.position.set(x,0,z);
-        scene.add(arrowGroup);
-        createTextSprite(label, x, 3.42, z, .00235, scene);
-        return arrowGroup;
-      }
-
-      function addRepairDetails(){
-        const padMat = new THREE.MeshStandardMaterial({color:0x10213b, roughness:.58, metalness:.24, emissive:0x12356b, emissiveIntensity:.38});
-        const shipPad = new THREE.Mesh(new THREE.CylinderGeometry(2.25,2.45,.20,64), padMat);
-        shipPad.position.set(SHIP_POS.x,.06,SHIP_POS.z);
-        shipPad.receiveShadow = true;
-        scene.add(shipPad);
-
-        const raePadMat = new THREE.MeshBasicMaterial({color:0x65ff9d, transparent:true, opacity:.72});
-        const raeRing = new THREE.Mesh(new THREE.TorusGeometry(1.55,.055,8,76), raePadMat);
-        raeRing.rotation.x = Math.PI/2;
-        raeRing.position.set(RAE_POS.x,.1,RAE_POS.z);
-        scene.add(raeRing);
-
-        const shipRingMat = new THREE.MeshBasicMaterial({color:0x72f7ff, transparent:true, opacity:.58});
-        const shipRing = new THREE.Mesh(new THREE.TorusGeometry(2.25,.06,8,86), shipRingMat);
-        shipRing.rotation.x = Math.PI/2;
-        shipRing.position.set(SHIP_POS.x,.12,SHIP_POS.z);
-        scene.add(shipRing);
-
-        const light1 = new THREE.PointLight(0x65ff9d,1.35,7.5);
-        light1.position.set(RAE_POS.x,3.2,RAE_POS.z);
-        scene.add(light1);
-        const light2 = new THREE.PointLight(0x72f7ff,1.25,9.5);
-        light2.position.set(SHIP_POS.x,3.8,SHIP_POS.z);
-        scene.add(light2);
-
-        const smokeMat = new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:.26});
-        for(let i=0;i<4;i++){
-          const smoke = new THREE.Mesh(new THREE.SphereGeometry(.18+i*.06,14,10), smokeMat);
-          smoke.position.set(SHIP_POS.x - 1.2 - i*.35, .75 + i*.28, SHIP_POS.z + .5 - i*.08);
-          scene.add(smoke);
-        }
-
-        addFloatingArrow(RAE_POS.x, RAE_POS.z, "Rae");
-        addFloatingArrow(SHIP_POS.x, SHIP_POS.z, "Spaceship");
-      }
-
-      addRepairDetails();
-
       if(loader){
         loader.load(RAE_GLTF_SRC, gltf=>{
-          raeModel = prepareModel(gltf.scene, {
-            name:"Rae red panda GLTF",
-            x:RAE_POS.x, y:0, z:RAE_POS.z,
-            targetSize:2.75,
-            rotationY:-1.15,
-            groundY:0,
-            extraLift:.04,
-            materialBoost:{emissiveColor:0x3b0b04, emissiveIntensity:.32, minLightness:.18}
-          });
+          raeModel = prepareModel(gltf.scene, {x:5.55, y:0, z:-6.2, targetSize:2.7, rotationY:-1.02});
         }, undefined, ()=>{ raeModel = makeFallbackRae(); });
         loader.load(RAE_SHIP_GLTF_SRC, gltf=>{
-          raeShipModel = prepareModel(gltf.scene, {
-            name:"Rae spaceship GLTF",
-            x:SHIP_POS.x, y:0, z:SHIP_POS.z,
-            targetSize:4.6,
-            rotationY:-.55,
-            groundY:0,
-            extraLift:.14,
-            materialBoost:{emissiveColor:0x0f4a6b, emissiveIntensity:.34, minLightness:.22}
-          });
+          raeShipModel = prepareModel(gltf.scene, {x:8.35, y:.08, z:-4.55, targetSize:5.4, rotationY:-0.92});
         }, undefined, ()=>{ raeShipModel = makeFallbackShip(); });
       }else{
         raeModel = makeFallbackRae();
         raeShipModel = makeFallbackShip();
       }
 
-      raeLabel = null;
+      const padMat = new THREE.MeshStandardMaterial({color:0x1e293b, roughness:.6, metalness:.22, emissive:0x0f172a, emissiveIntensity:.35});
+      const repairPad = new THREE.Mesh(new THREE.CylinderGeometry(2.2,2.38,.18,48), padMat);
+      repairPad.position.set(8.35,.05,-4.55);
+      repairPad.receiveShadow = true;
+      scene.add(repairPad);
+
+      const beaconMat = new THREE.MeshBasicMaterial({color:0x65ff9d, transparent:true, opacity:.65});
+      const beacon = new THREE.Mesh(new THREE.TorusGeometry(1.48,.045,8,64), beaconMat);
+      beacon.rotation.x = Math.PI/2;
+      beacon.position.set(5.55,.08,-6.2);
+      scene.add(beacon);
+
+      const shipBeacon = new THREE.Mesh(new THREE.RingGeometry(1.7,1.9,56), new THREE.MeshBasicMaterial({color:0x72f7ff, transparent:true, opacity:.28, side:THREE.DoubleSide}));
+      shipBeacon.rotation.x = -Math.PI/2;
+      shipBeacon.position.set(8.35,.07,-4.55);
+      scene.add(shipBeacon);
+
+      const raeSpot = new THREE.PointLight(0x72f7ff, .9, 7.5);
+      raeSpot.position.set(5.55,2.2,-5.7);
+      scene.add(raeSpot);
+      const shipSpot = new THREE.PointLight(0x72f7ff, 1.15, 10.5);
+      shipSpot.position.set(8.2,2.4,-4.35);
+      scene.add(shipSpot);
+
+      raeLabel = createTextSprite("Rae", 5.55, 2.35, -6.2, .0032, scene);
+      createTextSprite("Spaceship", 8.35, 1.9, -4.55, .0030, scene);
     }
 
     function makeChamber(){
@@ -3976,48 +4196,37 @@
     function createTextSprite(text, x, y, z, scale, parent){
       const THREE = window.THREE;
       const canvas = document.createElement("canvas");
-      canvas.width = 512;
-      canvas.height = 180;
+      canvas.width = 440;
+      canvas.height = 160;
       const ctx = canvas.getContext("2d");
       ctx.clearRect(0,0,canvas.width,canvas.height);
-
-      function roundRect(ctx, x, y, w, h, r){
-        const rr = Math.min(r, w/2, h/2);
-        ctx.beginPath();
-        ctx.moveTo(x+rr,y);
-        ctx.arcTo(x+w,y,x+w,y+h,rr);
-        ctx.arcTo(x+w,y+h,x,y+h,rr);
-        ctx.arcTo(x,y+h,x,y,rr);
-        ctx.arcTo(x,y,x+w,y,rr);
-        ctx.closePath();
-      }
-
-      const lines = String(text).split("\n").filter(Boolean).slice(0,2);
-      const boxW = lines.length > 1 ? 372 : 264;
-      const boxH = lines.length > 1 ? 116 : 82;
-      const boxX = (canvas.width - boxW) / 2;
-      const boxY = (canvas.height - boxH) / 2;
-
-      ctx.save();
-      ctx.shadowColor = "rgba(114,247,255,.55)";
-      ctx.shadowBlur = 18;
-      ctx.fillStyle = "rgba(2,10,25,.58)";
-      roundRect(ctx, boxX, boxY, boxW, boxH, 28);
+      const radius = 24;
+      const w = 404, h = 112, ox = 18, oy = 22;
+      ctx.beginPath();
+      ctx.moveTo(ox + radius, oy);
+      ctx.lineTo(ox + w - radius, oy);
+      ctx.quadraticCurveTo(ox + w, oy, ox + w, oy + radius);
+      ctx.lineTo(ox + w, oy + h - radius);
+      ctx.quadraticCurveTo(ox + w, oy + h, ox + w - radius, oy + h);
+      ctx.lineTo(ox + radius, oy + h);
+      ctx.quadraticCurveTo(ox, oy + h, ox, oy + h - radius);
+      ctx.lineTo(ox, oy + radius);
+      ctx.quadraticCurveTo(ox, oy, ox + radius, oy);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(3,14,34,.72)";
       ctx.fill();
-      ctx.restore();
-
-      ctx.strokeStyle = "rgba(114,247,255,.58)";
+      ctx.strokeStyle = "rgba(114,247,255,.72)";
       ctx.lineWidth = 4;
-      roundRect(ctx, boxX+3, boxY+3, boxW-6, boxH-6, 24);
       ctx.stroke();
-
-      ctx.fillStyle = "#eaffff";
+      ctx.shadowColor = "rgba(114,247,255,.18)";
+      ctx.shadowBlur = 12;
+      ctx.fillStyle = "#efffff";
+      ctx.font = "900 30px Trebuchet MS, Arial";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.font = lines.length > 1 ? "800 27px Trebuchet MS, Arial" : "900 34px Trebuchet MS, Arial";
-      const startY = canvas.height/2 - ((lines.length - 1) * 17);
-      lines.forEach((line,i)=>ctx.fillText(line, canvas.width/2, startY + i*34));
-
+      const lines = String(text).split("\n");
+      const startY = lines.length > 1 ? 70 : 79;
+      lines.forEach((line,i)=>ctx.fillText(line,220,startY + i*28));
       const tex = new THREE.CanvasTexture(canvas);
       tex.minFilter = THREE.LinearFilter;
       const mat = new THREE.SpriteMaterial({map:tex, transparent:true, depthWrite:false});
@@ -4042,6 +4251,7 @@
         if(e.key.toLowerCase() === "q") keys.turnLeft = true;
         if(e.key.toLowerCase() === "e"){
           if(modalShade.classList.contains("open")) return;
+          if(dialogueBox && dialogueBox.classList.contains("open")) return;
           interact();
         }
         if(e.key === "Enter" && modalShade.classList.contains("open")){
@@ -4082,7 +4292,7 @@
           e.preventDefault();
           try{ btn.setPointerCapture(e.pointerId); }catch(err){}
           if(k === "interact"){
-            interact();
+            if(!(dialogueBox && dialogueBox.classList.contains("open"))) interact();
             return;
           }
           keys[k] = true;
@@ -4121,6 +4331,23 @@
 
       prompt.addEventListener("click", interact);
       closeQuizBtn.addEventListener("click", closeQuiz);
+      if(dialogueSkipBtn) dialogueSkipBtn.addEventListener("click", ()=>{
+        closeDialogue();
+        showMessage("Now activate Rae's computer in the repair bay.", 3600);
+        setMission("Use Rae's computer");
+      });
+      if(dialogueNextBtn) dialogueNextBtn.addEventListener("click", nextDialogue);
+      if(dialogueReplayVoiceBtn) dialogueReplayVoiceBtn.addEventListener("click", ()=>{
+        if(currentDialogueLine) speakLine(currentDialogueLine.speaker || "Space Max", currentDialogueLine.text || "");
+      });
+      if(storyBtn) storyBtn.addEventListener("click", ()=>{
+        raeTalked = true;
+        startDialogue(OPENING_DIALOGUE);
+      });
+      if("speechSynthesis" in window){
+        speechSynthesis.onvoiceschanged = ()=>getVoices();
+        getVoices();
+      }
 
       if(outerCheatSolveBtn){
         outerCheatSolveBtn.addEventListener("click", ()=>{
@@ -4248,8 +4475,7 @@
       coverPage.style.display = "none";
       started = true;
       setMission("Rocket exit");
-      showMessage("Space Max steps out of his rocket and sees Rae the Red Panda beside a damaged spaceship.", 3200);
-      speak("Space Max has landed on a strange planet. Rae the Red Panda is waiting beside a damaged spaceship. Walk to Rae to learn why Max needs rocket parts.");
+      showMessage("Space Max steps out of his rocket and sees Rae beside a damaged spaceship.", 3000);
       whoosh();
 
       rocketDoor.rotation.x = -1.15;
@@ -4261,7 +4487,7 @@
       player.position.set(-6.4, 0, 5.4);
       player.rotation.y = -0.7;
 
-      showMessage("You are in control now. Use WASD, arrow keys, or the mobile buttons to guide Space Max to Rae and the glowing repair bay.", 5200);
+      showMessage("Guide Space Max to Rae. Press E near Rae to hear their conversation and the unit-fraction idea.", 5600);
       setMission("Find Rae");
 
       setTimeout(()=>{
@@ -4291,6 +4517,7 @@
       updateDoors(dt);
       updatePlayer(dt, elapsed);
       updateCamera(dt);
+      updateDialoguePosition();
       updateInteractions();
       updateReactor3D(elapsed);
     }
@@ -4358,7 +4585,7 @@
         }else{
           autoWalk = null;
         }
-      }else if(started && !modalShade.classList.contains("open") && !endingPanel.classList.contains("open")){
+      }else if(started && !modalShade.classList.contains("open") && !endingPanel.classList.contains("open") && !(dialogueBox && dialogueBox.classList.contains("open"))){
         if(keys.turnLeft) cameraYaw += dt * 1.8;
         if(keys.turnRight) cameraYaw -= dt * 1.8;
         if(keys.lookUp) cameraPitch = Math.min(.42, cameraPitch + dt*.75);
@@ -4427,7 +4654,7 @@
 
       currentInteract = null;
 
-      const distRae = distance2D(player.position.x, player.position.z, 5.1, -6.9);
+      const distRae = distance2D(player.position.x, player.position.z, 5.55, -6.2);
       const distComputer = distance2D(player.position.x, player.position.z, 0, -15.1);
       const distExit = distance2D(player.position.x, player.position.z, 0, -17.7);
 
@@ -4447,7 +4674,6 @@
 
     function interact(){
       if(!currentInteract) return;
-      if(dialogueBusy) return;
       if(currentInteract === "rae"){
         playRaeDialogue();
       }else if(currentInteract === "computer"){
@@ -4526,7 +4752,7 @@
       computerActivated = true;
       modalShade.classList.add("open");
       setMission("Rae's computer");
-      speak("Rae's spaceship computer has expanded. Practice is optional. Space Max collects the Rocket Body only after Test Mission twelve out of twelve.");
+      speakLine("Rae", "The computer is ready. Practice first if you need to, then complete the Test Mission with twelve out of twelve.");
       showMessage("Complete Test Mission 12/12 so Rae can give Space Max the Rocket Body.", 4200);
     }
 
@@ -4691,7 +4917,7 @@
       setMission("Mission accomplished");
       if(rewardToast) rewardToast.classList.add("show");
       showMessage("Mission accomplished! Test Mission 12/12 completed. Rae gives Space Max the Rocket Body.", 5200);
-      speak("Mission accomplished. Test Mission twelve out of twelve completed. Rocket Body collected from Rae.");
+      speakLine("Rae", "You did it, Space Max! My spaceship is working again. Please take the Rocket Body.");
       whoosh();
       confetti(120);
 
@@ -4710,7 +4936,7 @@
 
       setMission("Return to rocket");
       showMessage("Space Max leaves Rae's repair bay and returns to his rocket.", 3600);
-      speak("Space Max is returning to his rocket.");
+      speakLine("Space Max", "Thank you, Rae. This Rocket Body brings me one step closer to Earth.");
       whoosh();
 
       // Let the player see Space Max leave the chamber and walk back to the rocket.
@@ -4737,7 +4963,7 @@
 
       setMission("Rocket video ending");
       showMessage("Space Max boards his rocket with the Rocket Body. The rocket flies away to the next destination.", 3200);
-      speak("Space Max boards his rocket with the Rocket Body and flies to the next destination.");
+      speakLine("Space Max", "I will keep searching for the remaining rocket parts.");
       whoosh();
 
       await delay(1200);
